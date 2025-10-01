@@ -1,8 +1,74 @@
 'use client'
 
+import { useState } from 'react'
+import ProjectCard from './ui/ProjectCard'
+import DemoModal from './ui/DemoModal'
+
+interface Project {
+  id: string
+  title: string
+  description: string
+  techStack: string[]
+  demoType: 'visualizer' | 'interactive' | 'carousel'
+  modalType: 'wozway' | 'defendai' | 'grafana'
+}
+
+const projects: Project[] = [
+  {
+    id: 'wozway',
+    title: 'Wozway AI Gateway',
+    description: 'Multi-tenant AI gateway platform with advanced security, rate limiting, and request routing. Built with APISIX and custom plugins for enterprise AI workloads.',
+    techStack: ['APISIX', 'Python', 'Docker', 'Kubernetes', 'Gateway'],
+    demoType: 'visualizer',
+    modalType: 'wozway'
+  },
+  {
+    id: 'defendai',
+    title: 'DefendAI Security Platform',
+    description: 'AI-powered security analysis platform with intelligent agents for vulnerability detection, threat assessment, and automated security recommendations.',
+    techStack: ['Python', 'FastAPI', 'AI/ML', 'PostgreSQL', 'Docker'],
+    demoType: 'interactive',
+    modalType: 'defendai'
+  },
+  {
+    id: 'grafana',
+    title: 'Infrastructure Monitoring',
+    description: 'Comprehensive monitoring solution with custom Grafana dashboards, Prometheus metrics, and real-time alerting for cloud-native applications.',
+    techStack: ['Grafana', 'Prometheus', 'Kubernetes', 'Docker', 'Monitoring'],
+    demoType: 'carousel',
+    modalType: 'grafana'
+  }
+]
+
 export default function Projects() {
+  const [selectedDemo, setSelectedDemo] = useState<{
+    isOpen: boolean
+    demoType: 'wozway' | 'defendai' | 'grafana' | null
+    title: string
+  }>({
+    isOpen: false,
+    demoType: null,
+    title: ''
+  })
+
+  const handleDemoClick = (project: Project) => {
+    setSelectedDemo({
+      isOpen: true,
+      demoType: project.modalType,
+      title: project.title
+    })
+  }
+
+  const closeDemoModal = () => {
+    setSelectedDemo({
+      isOpen: false,
+      demoType: null,
+      title: ''
+    })
+  }
+
   return (
-    <div className="container-max section-padding py-20">
+    <section id="projects" className="container-max section-padding py-20">
       <div className="text-center mb-16">
         <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
           Featured Projects
@@ -13,37 +79,26 @@ export default function Projects() {
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {/* Placeholder project cards */}
-        <div className="card">
-          <h3 className="text-xl font-semibold text-gray-900 mb-3">Wozway Visualizer</h3>
-          <p className="text-gray-600 mb-4">Interactive demo coming soon...</p>
-          <div className="flex flex-wrap gap-2">
-            <span className="tech-badge">React</span>
-            <span className="tech-badge">TypeScript</span>
-            <span className="tech-badge">SVG</span>
-          </div>
-        </div>
-        
-        <div className="card">
-          <h3 className="text-xl font-semibold text-gray-900 mb-3">DefendAI Agents</h3>
-          <p className="text-gray-600 mb-4">Interactive demo coming soon...</p>
-          <div className="flex flex-wrap gap-2">
-            <span className="tech-badge">Python</span>
-            <span className="tech-badge">FastAPI</span>
-            <span className="tech-badge">AI/ML</span>
-          </div>
-        </div>
-        
-        <div className="card">
-          <h3 className="text-xl font-semibold text-gray-900 mb-3">Grafana Dashboard</h3>
-          <p className="text-gray-600 mb-4">Interactive demo coming soon...</p>
-          <div className="flex flex-wrap gap-2">
-            <span className="tech-badge">Grafana</span>
-            <span className="tech-badge">Prometheus</span>
-            <span className="tech-badge">Kubernetes</span>
-          </div>
-        </div>
+        {projects.map((project) => (
+          <ProjectCard
+            key={project.id}
+            title={project.title}
+            description={project.description}
+            techStack={project.techStack}
+            demoType={project.demoType}
+            onDemoClick={() => handleDemoClick(project)}
+          />
+        ))}
       </div>
-    </div>
+
+      {selectedDemo.demoType && (
+        <DemoModal
+          isOpen={selectedDemo.isOpen}
+          onClose={closeDemoModal}
+          demoType={selectedDemo.demoType}
+          title={selectedDemo.title}
+        />
+      )}
+    </section>
   )
 }
