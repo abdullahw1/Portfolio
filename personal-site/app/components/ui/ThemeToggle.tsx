@@ -2,15 +2,9 @@
 
 import { useTheme } from '../../contexts/ThemeContext'
 import { Sun, Moon } from 'lucide-react'
-import { useEffect, useState } from 'react'
 
 export default function ThemeToggle() {
-  const { theme, toggleTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
+  const { theme, toggleTheme, mounted } = useTheme()
 
   if (!mounted) {
     return null
