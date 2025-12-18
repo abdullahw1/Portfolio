@@ -14,9 +14,13 @@ export default function Hero() {
       
       <div className="container-max section-padding text-center relative z-10">
         <div className="animate-fade-in">
-          {/* Profile Image Placeholder */}
-          <div className="w-32 h-32 mx-auto mb-8 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full flex items-center justify-center text-white text-4xl font-bold">
-            AW
+          {/* Profile Image */}
+          <div className="w-32 h-32 mx-auto mb-8">
+            <img 
+              src="/Portfolio/images/profile-picture.jpg" 
+              alt="Abdullah Waheed" 
+              className="w-full h-full object-cover rounded-full shadow-lg"
+            />
           </div>
           
           {/* Name and Title */}

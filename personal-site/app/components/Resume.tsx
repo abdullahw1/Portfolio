@@ -150,8 +150,12 @@ export default function Resume() {
   }
 
   const downloadResume = () => {
-    // In a real implementation, this would download the actual PDF
-    alert('Resume download would be implemented here with a real PDF file')
+    const link = document.createElement('a')
+    link.href = '/Portfolio/abdullah-waheed-resume.pdf'
+    link.download = 'Abdullah-Waheed-Resume.pdf'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
   }
 
   return (
