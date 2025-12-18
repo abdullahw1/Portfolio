@@ -34,23 +34,23 @@ export default function ProjectCard({
 
   const getTechBadgeColor = (tech: string) => {
     const techColors: { [key: string]: string } = {
-      'React': 'bg-blue-50 text-blue-700 border-blue-200',
-      'TypeScript': 'bg-blue-50 text-blue-700 border-blue-200',
-      'Next.js': 'bg-gray-50 text-gray-700 border-gray-200',
-      'Python': 'bg-green-50 text-green-700 border-green-200',
-      'FastAPI': 'bg-green-50 text-green-700 border-green-200',
-      'AI/ML': 'bg-purple-50 text-purple-700 border-purple-200',
-      'SVG': 'bg-orange-50 text-orange-700 border-orange-200',
-      'Grafana': 'bg-orange-50 text-orange-700 border-orange-200',
-      'Prometheus': 'bg-red-50 text-red-700 border-red-200',
-      'Kubernetes': 'bg-blue-50 text-blue-700 border-blue-200',
-      'Docker': 'bg-blue-50 text-blue-700 border-blue-200',
-      'APISIX': 'bg-indigo-50 text-indigo-700 border-indigo-200',
-      'Gateway': 'bg-indigo-50 text-indigo-700 border-indigo-200',
-      'PostgreSQL': 'bg-blue-50 text-blue-700 border-blue-200',
-      'Monitoring': 'bg-yellow-50 text-yellow-700 border-yellow-200',
+      'React': 'bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-700',
+      'TypeScript': 'bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-700',
+      'Next.js': 'bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-600',
+      'Python': 'bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-300 border-green-200 dark:border-green-700',
+      'FastAPI': 'bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-300 border-green-200 dark:border-green-700',
+      'AI/ML': 'bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 border-purple-200 dark:border-purple-700',
+      'SVG': 'bg-orange-50 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 border-orange-200 dark:border-orange-700',
+      'Grafana': 'bg-orange-50 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 border-orange-200 dark:border-orange-700',
+      'Prometheus': 'bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-300 border-red-200 dark:border-red-700',
+      'Kubernetes': 'bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-700',
+      'Docker': 'bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-700',
+      'APISIX': 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 border-indigo-200 dark:border-indigo-700',
+      'Gateway': 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 border-indigo-200 dark:border-indigo-700',
+      'PostgreSQL': 'bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-700',
+      'Monitoring': 'bg-yellow-50 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 border-yellow-200 dark:border-yellow-700',
     }
-    return techColors[tech] || 'bg-gray-50 text-gray-700 border-gray-200'
+    return techColors[tech] || 'bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-600'
   }
 
   return (
@@ -64,10 +64,10 @@ export default function ProjectCard({
     >
       <div className="flex flex-col h-full">
         <div className="flex-1">
-          <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors duration-200">
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-200">
             {title}
           </h3>
-          <p className="text-gray-600 mb-4 leading-relaxed">
+          <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
             {description}
           </p>
         </div>
@@ -84,7 +84,7 @@ export default function ProjectCard({
             ))}
           </div>
           
-          <button className="w-full bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 hover:shadow-lg group-hover:scale-105">
+          <button className="w-full bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 hover:shadow-lg group-hover:scale-105">
             {getDemoButtonText()}
           </button>
         </div>

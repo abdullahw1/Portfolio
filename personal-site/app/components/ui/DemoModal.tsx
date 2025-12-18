@@ -76,8 +76,8 @@ export default function DemoModal({ isOpen, onClose, demoType, title }: DemoModa
   const renderWozwayDemo = () => (
     <div className="space-y-6">
       <div className="text-center">
-        <h4 className="text-lg font-semibold text-gray-900 mb-2">AI Gateway Architecture</h4>
-        <p className="text-gray-600">Interactive flow diagram showing request routing through Wozway</p>
+        <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">AI Gateway Architecture</h4>
+        <p className="text-gray-600 dark:text-gray-300">Interactive flow diagram showing request routing through Wozway</p>
       </div>
       
       <div className="bg-gray-50 rounded-lg p-8">
@@ -158,27 +158,27 @@ export default function DemoModal({ isOpen, onClose, demoType, title }: DemoModa
   const renderDefendAIDemo = () => (
     <div className="space-y-6">
       <div className="text-center">
-        <h4 className="text-lg font-semibold text-gray-900 mb-2">DefendAI Security Query</h4>
-        <p className="text-gray-600">Search for vulnerabilities and security insights</p>
+        <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">DefendAI Security Query</h4>
+        <p className="text-gray-600 dark:text-gray-300">Search for vulnerabilities and security insights</p>
       </div>
       
       <div className="bg-gray-50 rounded-lg p-6">
         <div className="flex gap-3 mb-4">
           <div className="flex-1 relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500 w-5 h-5" />
             <input
               type="text"
               placeholder="Enter vulnerability, CVE, or security term..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
-              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent placeholder-gray-500 dark:placeholder-gray-400"
             />
           </div>
           <button
             onClick={handleSearch}
             disabled={isSearching || !searchQuery.trim()}
-            className="px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
+            className="px-6 py-3 bg-primary-600 dark:bg-primary-500 text-white rounded-lg hover:bg-primary-700 dark:hover:bg-primary-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
           >
             {isSearching ? 'Searching...' : 'Search'}
           </button>
@@ -187,18 +187,18 @@ export default function DemoModal({ isOpen, onClose, demoType, title }: DemoModa
         {isSearching && (
           <div className="flex items-center justify-center py-8">
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600"></div>
-            <span className="ml-3 text-gray-600">Analyzing security database...</span>
+            <span className="ml-3 text-gray-600 dark:text-gray-300">Analyzing security database...</span>
           </div>
         )}
         
         {searchResults.length > 0 && (
           <div className="space-y-3">
-            <h5 className="font-semibold text-gray-900">Search Results:</h5>
+            <h5 className="font-semibold text-gray-900 dark:text-white">Search Results:</h5>
             {searchResults.map((result, index) => (
-              <div key={index} className="bg-white p-4 rounded-lg border border-gray-200 hover:border-primary-300 transition-colors duration-200">
+              <div key={index} className="bg-white dark:bg-gray-700 p-4 rounded-lg border border-gray-200 dark:border-gray-600 hover:border-primary-300 dark:hover:border-primary-500 transition-colors duration-200">
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-primary-600 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-gray-700">{result}</p>
+                  <p className="text-gray-700 dark:text-gray-300">{result}</p>
                 </div>
               </div>
             ))}
@@ -211,8 +211,8 @@ export default function DemoModal({ isOpen, onClose, demoType, title }: DemoModa
   const renderGrafanaDemo = () => (
     <div className="space-y-6">
       <div className="text-center">
-        <h4 className="text-lg font-semibold text-gray-900 mb-2">Grafana Dashboard Screenshots</h4>
-        <p className="text-gray-600">Infrastructure monitoring and observability dashboards</p>
+        <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Grafana Dashboard Screenshots</h4>
+        <p className="text-gray-600 dark:text-gray-300">Infrastructure monitoring and observability dashboards</p>
       </div>
       
       <div className="bg-gray-50 rounded-lg p-6">
@@ -262,21 +262,21 @@ export default function DemoModal({ isOpen, onClose, demoType, title }: DemoModa
           {/* Navigation arrows */}
           <button
             onClick={prevSlide}
-            className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 rounded-full p-2 shadow-lg transition-all duration-200"
+            className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white dark:bg-gray-800 bg-opacity-80 dark:bg-opacity-80 hover:bg-opacity-100 dark:hover:bg-opacity-100 rounded-full p-2 shadow-lg transition-all duration-200"
           >
-            <ChevronLeft className="w-5 h-5 text-gray-700" />
+            <ChevronLeft className="w-5 h-5 text-gray-700 dark:text-gray-300" />
           </button>
           
           <button
             onClick={nextSlide}
-            className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 rounded-full p-2 shadow-lg transition-all duration-200"
+            className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white dark:bg-gray-800 bg-opacity-80 dark:bg-opacity-80 hover:bg-opacity-100 dark:hover:bg-opacity-100 rounded-full p-2 shadow-lg transition-all duration-200"
           >
-            <ChevronRight className="w-5 h-5 text-gray-700" />
+            <ChevronRight className="w-5 h-5 text-gray-700 dark:text-gray-300" />
           </button>
         </div>
         
         <div className="mt-4 text-center">
-          <p className="text-gray-600 mb-3">{grafanaSlides[currentSlide].description}</p>
+          <p className="text-gray-600 dark:text-gray-300 mb-3">{grafanaSlides[currentSlide].description}</p>
           <div className="flex justify-center gap-2">
             {grafanaSlides.map((_, index) => (
               <button
@@ -308,14 +308,14 @@ export default function DemoModal({ isOpen, onClose, demoType, title }: DemoModa
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-      <div className="bg-white rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-        <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between">
-          <h3 className="text-xl font-semibold text-gray-900">{title}</h3>
+      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+        <div className="sticky top-0 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-6 py-4 flex items-center justify-between">
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-white">{title}</h3>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-gray-100 rounded-lg transition-colors duration-200"
+            className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200"
           >
-            <X className="w-5 h-5 text-gray-500" />
+            <X className="w-5 h-5 text-gray-500 dark:text-gray-400" />
           </button>
         </div>
         

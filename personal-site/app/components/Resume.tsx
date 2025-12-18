@@ -159,10 +159,10 @@ export default function Resume() {
       <div className="container-max section-padding">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             Interactive Resume
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Click on any section to expand and see detailed information about my experience, education, and skills.
           </p>
         </div>
@@ -171,7 +171,7 @@ export default function Resume() {
         <div className="max-w-4xl mx-auto">
           <div className="relative">
             {/* Timeline Line */}
-            <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-200 via-green-200 to-purple-200"></div>
+            <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-200 via-green-200 to-purple-200 dark:from-primary-700 dark:via-green-700 dark:to-purple-700"></div>
             
             {timelineData.map((entry) => (
               <TimelineItem
@@ -187,27 +187,27 @@ export default function Resume() {
         {/* Key Metrics Section */}
         <div className="max-w-4xl mx-auto mt-16">
           <div className="card">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Impact Metrics</h3>
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">Impact Metrics</h3>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary-600 mb-2">10M+</div>
-                <div className="text-sm text-gray-600">Daily LLM Requests</div>
+                <div className="text-3xl font-bold text-primary-600 dark:text-primary-400 mb-2">10M+</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">Daily LLM Requests</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-green-600 mb-2">99.9%</div>
-                <div className="text-sm text-gray-600">System Uptime</div>
+                <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">99.9%</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">System Uptime</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-green-600 mb-2">85%</div>
-                <div className="text-sm text-gray-600">Security Incidents Reduced</div>
+                <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">85%</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">Security Incidents Reduced</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-green-600 mb-2">40%</div>
-                <div className="text-sm text-gray-600">Cost Reduction</div>
+                <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">40%</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">Cost Reduction</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary-600 mb-2">50+</div>
-                <div className="text-sm text-gray-600">Production AI Agents</div>
+                <div className="text-3xl font-bold text-primary-600 dark:text-primary-400 mb-2">50+</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">Production AI Agents</div>
               </div>
             </div>
           </div>
@@ -218,7 +218,7 @@ export default function Resume() {
       <div className="fixed bottom-8 right-8 z-50">
         <button 
           onClick={downloadResume}
-          className="bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 group"
+          className="bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 group"
           title="Download PDF Resume"
         >
           <Download size={20} className="group-hover:animate-bounce" />

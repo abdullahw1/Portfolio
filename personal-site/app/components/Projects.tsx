@@ -70,10 +70,10 @@ export default function Projects() {
   return (
     <section id="projects" className="container-max section-padding py-20">
       <div className="text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
           Featured Projects
         </h2>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
           Interactive demos and key projects showcasing AI infrastructure, security platforms, and DevOps solutions.
         </p>
       </div>

@@ -53,12 +53,12 @@ export default function Navigation({ activeSection, setActiveSection }: Navigati
   }
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      scrolled ? 'bg-white/95 backdrop-blur-sm shadow-sm' : 'bg-transparent'
+    <nav className={`fixed top-0 w-full z-40 transition-all duration-300 ${
+      scrolled ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm shadow-sm' : 'bg-transparent'
     }`}>
       <div className="container-max section-padding">
         <div className="flex items-center justify-between h-16">
-          <div className="font-bold text-xl text-gray-900">
+          <div className="font-bold text-xl text-gray-900 dark:text-white">
             Abdullah Waheed
           </div>
 
@@ -70,8 +70,8 @@ export default function Navigation({ activeSection, setActiveSection }: Navigati
                 onClick={() => scrollToSection(item.id)}
                 className={`font-medium transition-colors duration-200 ${
                   activeSection === item.id
-                    ? 'text-primary-600'
-                    : 'text-gray-600 hover:text-gray-900'
+                    ? 'text-primary-600 dark:text-primary-400'
+                    : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
                 }`}
               >
                 {item.label}
@@ -83,7 +83,7 @@ export default function Navigation({ activeSection, setActiveSection }: Navigati
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-600 hover:text-gray-900"
+              className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -92,7 +92,7 @@ export default function Navigation({ activeSection, setActiveSection }: Navigati
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden bg-white border-t border-gray-200">
+          <div className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item) => (
                 <button
@@ -100,8 +100,8 @@ export default function Navigation({ activeSection, setActiveSection }: Navigati
                   onClick={() => scrollToSection(item.id)}
                   className={`block w-full text-left px-3 py-2 font-medium transition-colors duration-200 ${
                     activeSection === item.id
-                      ? 'text-primary-600 bg-primary-50'
-                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                      ? 'text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20'
+                      : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800'
                   }`}
                 >
                   {item.label}
